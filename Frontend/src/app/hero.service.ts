@@ -77,7 +77,7 @@ export class HeroService {
   }
 
   bla(): Observable<string> {
-    return this.http.get('http://localhost:8080/SpringBootCRUDApp/').pipe(
+    return this.http.get('http://localhost:8080/SpringBootCRUDApp/api/user/').pipe(
       tap((result: string) => this.log(result)),
       catchError(this.handleError<string>('httpGetError'))
     );
