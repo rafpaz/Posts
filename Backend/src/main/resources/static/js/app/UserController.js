@@ -16,6 +16,7 @@ angular.module('crudApp').controller('UserController',
         self.editUser = editUser;
         self.reset = reset;
         self.addNewPost = addNewPost;
+        self.getUserPosts = getUserPosts;
 
         self.successMessage = '';
         self.errorMessage = '';
@@ -120,6 +121,14 @@ angular.module('crudApp').controller('UserController',
             post.userId = 1;
             post.id = 1;
             UserService.addNewPost(post).then(
+                function (value) { console.log(value); },
+                function (reason) { console.error(reason); }
+            );
+        }
+
+        function getUserPosts(){
+            var id = "1";
+            UserService.getUserPosts(id).then(
                 function (value) { console.log(value); },
                 function (reason) { console.error(reason); }
             );

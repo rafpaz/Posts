@@ -54,7 +54,8 @@
             </div>
         </div>
     </div>
-    <button ng-click="ctrl.addNewPost()" >BLABLA</button>
+    <button ng-click="ctrl.addNewPost()" >Add New Post</button>
+    <button ng-click="ctrl.getUserPosts()" >Get User Posts</button>
     <div class="panel panel-default">
         <!-- Default panel contents -->
         <div class="panel-heading"><span class="lead">List of Users </span></div>

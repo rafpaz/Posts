@@ -147,4 +147,13 @@ public class RestApiController {
 		postService.addPost(post);
 		return new ResponseEntity<Post>(post, HttpStatus.OK);
 	}
+
+	@CrossOrigin(origins = {"http://localhost:4200"})
+	@RequestMapping(value = "/post/{id}", method = RequestMethod.GET)
+	public ResponseEntity<List<Post>> getUserPosts(@PathVariable("id") String id){
+		List<Post> posts = postService.getUserPosts(Integer.parseInt(id));
+		if (posts.isEmpty())
+			return new ResponseEntity(HttpStatus.NO_CONTENT);
+		return new ResponseEntity<List<Post>>(posts, HttpStatus.OK);
+	}
 }

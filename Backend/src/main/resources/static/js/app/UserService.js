@@ -11,7 +11,8 @@ angular.module('crudApp').factory('UserService',
                 createUser: createUser,
                 updateUser: updateUser,
                 removeUser: removeUser,
-                addNewPost: addNewPost
+                addNewPost: addNewPost,
+                getUserPosts: getUserPosts
             };
 
             return factory;
@@ -110,6 +111,22 @@ angular.module('crudApp').factory('UserService',
                 console.log('Add new post');
                 var deferred = $q.defer();
                 $http.post('http://localhost:8080/SpringBootCRUDApp/api/post/', post)
+                    .then(
+                        function (response) {
+                            deferred.resolve(response.data);
+                        },
+                        function (errResponse) {
+                            console.error('Error while creating User : '+errResponse.data.errorMessage);
+                            deferred.reject(errResponse);
+                        }
+                    );
+                return deferred.promise;
+            }
+
+            function getUserPosts(userId){
+                console.log('Get user posts');
+                var deferred = $q.defer();
+                $http.get('http://localhost:8080/SpringBootCRUDApp/api/post/' + userId)
                     .then(
                         function (response) {
                             deferred.resolve(response.data);

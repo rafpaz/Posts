@@ -4,6 +4,8 @@ import com.websystique.springboot.model.Post;
 import com.websystique.springboot.repositories.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specifications;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,11 +24,8 @@ public class PostServiceImpl implements PostService {
 	}
 
 	@Override
-	public List<Post> getUserPosts(Long userId) {
-		Post post = new Post();
-		post.setId(userId);
-		Example<Post> example = Example.of(post);
-		return postRepository.findAll(example);
+	public List<Post> getUserPosts(Integer userId) {
+		return postRepository.findByUserId(userId);
 	}
 
 	@Override
