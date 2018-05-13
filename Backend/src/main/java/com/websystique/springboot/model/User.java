@@ -22,6 +22,9 @@ public class User implements Serializable {
 	@Column(name = "SALARY", nullable = false)
 	private double salary;
 
+	@Column(name = "PASSWORD", nullable = false)
+	private String password;
+
 	public Long getId() {
 		return id;
 	}
@@ -52,5 +55,13 @@ public class User implements Serializable {
 
 	public void setSalary(double salary) {
 		this.salary = salary;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }

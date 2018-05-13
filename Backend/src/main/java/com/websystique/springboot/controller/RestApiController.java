@@ -2,6 +2,8 @@ package com.websystique.springboot.controller;
 
 import java.util.List;
 
+import com.websystique.springboot.model.Post;
+import com.websystique.springboot.service.PostService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,9 @@ public class RestApiController {
 
 	@Autowired
 	UserService userService;
+
+	@Autowired
+	PostService postService;
 
 	//Get all users
 	@CrossOrigin(origins = {"http://localhost:4200"})
@@ -108,5 +113,38 @@ public class RestApiController {
 
 		userService.deleteAllUsers();
 		return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
+	}
+
+	//user login
+	@CrossOrigin(origins = {"http://localhost:4200"})
+	@RequestMapping(value = "/user/{name}/{pass}", method = RequestMethod.GET)
+	public ResponseEntity<User> userLogin(@PathVariable("name") String name, @PathVariable("pass") String pass){
+		logger.info("looking for a user with name {}", name);
+		User user = userService.findByName(name);
+		if (user == null) {
+			logger.error("User with name {} not found", name);
+			return new ResponseEntity(new CustomErrorType("User with name " + name + " not found"), HttpStatus.NOT_FOUND);
+		}
+		if (!user.getPassword().equals(pass)){
+			logger.error("User found, but password is incorrect");
+			return new ResponseEntity(new CustomErrorType("Incorrect password: " + pass), HttpStatus.UNAUTHORIZED);
+		}
+		return new ResponseEntity<User>(user, HttpStatus.OK);
+	}
+
+	@CrossOrigin(origins = {"http://localhost:4200"})
+	@RequestMapping(value = "/post/", method = RequestMethod.GET)
+	public ResponseEntity<List<Post>> getPosts(){
+		List<Post> posts = postService.getAllPosts();
+		if (posts.isEmpty())
+			return new ResponseEntity(HttpStatus.NO_CONTENT);
+		return new ResponseEntity<List<Post>>(posts, HttpStatus.OK);
+	}
+
+	@CrossOrigin(origins = {"http://localhost:4200"})
+	@RequestMapping(value = "/post/", method = RequestMethod.POST)
+	public ResponseEntity<?> createPost(@RequestBody Post post){
+		postService.addPost(post);
+		return new ResponseEntity<Post>(post, HttpStatus.OK);
 	}
 }

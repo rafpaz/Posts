@@ -15,6 +15,7 @@ angular.module('crudApp').controller('UserController',
         self.removeUser = removeUser;
         self.editUser = editUser;
         self.reset = reset;
+        self.addNewPost = addNewPost;
 
         self.successMessage = '';
         self.errorMessage = '';
@@ -110,6 +111,18 @@ angular.module('crudApp').controller('UserController',
             self.errorMessage='';
             self.user={};
             $scope.myForm.$setPristine(); //reset Form
+        }
+
+        function addNewPost(){
+            var post = {};
+            post.title = "bla";
+            post.content = "content";
+            post.userId = 1;
+            post.id = 1;
+            UserService.addNewPost(post).then(
+                function (value) { console.log(value); },
+                function (reason) { console.error(reason); }
+            );
         }
     }
     ]);

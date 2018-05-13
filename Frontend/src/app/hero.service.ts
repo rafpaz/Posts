@@ -83,6 +83,13 @@ export class HeroService {
     );
   }
 
+  userLogin(): Observable<string> {
+    return this.http.get('http://localhost:8080/SpringBootCRUDApp/api/user/raf/12344').pipe(
+      tap((result: string) => this.log(result)),
+      catchError(this.handleError<string>('httpGetError'))
+    );
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.

@@ -24,7 +24,7 @@ export class HeroesComponent implements OnInit {
 
   add(name: string): void {
     console.log('Bla');
-    this.heroService.bla()
+    this.heroService.userLogin()
       .subscribe(text => {
         console.log(text);
       });
