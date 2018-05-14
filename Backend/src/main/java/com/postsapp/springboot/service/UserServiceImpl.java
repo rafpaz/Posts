@@ -1,10 +1,10 @@
 
-package com.websystique.springboot.service;
+package com.postsapp.springboot.service;
 
 import java.util.List;
 
-import com.websystique.springboot.model.User;
-import com.websystique.springboot.repositories.UserRepository;
+import com.postsapp.springboot.model.User;
+import com.postsapp.springboot.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,6 +1,6 @@
 server:
   port: 8080
-  contextPath: /SpringBootCRUDApp
+  contextPath: /SpringBootPostsApp
 ---
 spring:
   profiles: local,default
@@ -22,7 +22,7 @@ spring:
   profiles: prod
 datasource:
   sampleapp:
-    url: jdbc:mysql://localhost:3306/websystique
+    url: jdbc:mysql://localhost:3306/postsapp
     username: myuser
     password: mypassword
     driverClassName: com.mysql.jdbc.Driver

@@ -1,6 +1,6 @@
-package com.websystique.springboot.repositories;
+package com.postsapp.springboot.repositories;
 
-import com.websystique.springboot.model.Post;
+import com.postsapp.springboot.model.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

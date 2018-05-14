@@ -1,11 +1,8 @@
-package com.websystique.springboot.service;
+package com.postsapp.springboot.service;
 
-import com.websystique.springboot.model.Post;
-import com.websystique.springboot.repositories.PostRepository;
+import com.postsapp.springboot.model.Post;
+import com.postsapp.springboot.repositories.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.domain.Specifications;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

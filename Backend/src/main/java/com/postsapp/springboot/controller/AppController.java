@@ -1,4 +1,4 @@
-package com.websystique.springboot.controller;
+package com.postsapp.springboot.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

@@ -110,7 +110,7 @@ angular.module('crudApp').factory('UserService',
             function addNewPost(post){
                 console.log('Add new post');
                 var deferred = $q.defer();
-                $http.post('http://localhost:8080/SpringBootCRUDApp/api/post/', post)
+                $http.post('http://localhost:8080/SpringBootPostsApp/api/post/', post)
                     .then(
                         function (response) {
                             deferred.resolve(response.data);
@@ -126,7 +126,7 @@ angular.module('crudApp').factory('UserService',
             function getUserPosts(userId){
                 console.log('Get user posts');
                 var deferred = $q.defer();
-                $http.get('http://localhost:8080/SpringBootCRUDApp/api/post/' + userId)
+                $http.get('http://localhost:8080/SpringBootPostsApp/api/post/' + userId)
                     .then(
                         function (response) {
                             deferred.resolve(response.data);

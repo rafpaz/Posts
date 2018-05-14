@@ -1,4 +1,4 @@
-package com.websystique.springboot.model;
+package com.postsapp.springboot.model;
 
 import org.hibernate.validator.constraints.NotEmpty;
 

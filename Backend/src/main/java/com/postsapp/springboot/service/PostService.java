@@ -1,6 +1,6 @@
-package com.websystique.springboot.service;
+package com.postsapp.springboot.service;
 
-import com.websystique.springboot.model.Post;
+import com.postsapp.springboot.model.Post;
 
 import java.util.List;
 
