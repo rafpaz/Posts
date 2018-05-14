@@ -3,26 +3,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { HeroesComponent } from './heroes/heroes.component';
 
 import { FormsModule } from '@angular/forms';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './/app-routing.module';
-import { DashboardComponent } from './dashboard/dashboard.component';
 
-import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { PostsPageComponent } from './posts-page/posts-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroesComponent,
-    HeroDetailComponent,
-    MessagesComponent,
-    DashboardComponent,
-    HeroSearchComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    PostsPageComponent
   ],
   imports: [
     BrowserModule,

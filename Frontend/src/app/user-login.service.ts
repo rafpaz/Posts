@@ -10,7 +10,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class UserLoginService {
 
-  private usersUrl = 'http://localhost:8080/SpringBootCRUDApp/api/user';
+  private usersUrl = 'http://localhost:8080/SpringBootPostsApp/api/user';
 
   constructor(
     private http: HttpClient,
