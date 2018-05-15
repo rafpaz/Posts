@@ -1,3 +1,4 @@
+import { UserPostsService } from './../user-posts.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostsPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private userPostsService: UserPostsService
+  ) { }
 
   ngOnInit() {
+    this.userPostsService.getUserPosts(2).subscribe(bla => console.log(bla));
   }
 
 }

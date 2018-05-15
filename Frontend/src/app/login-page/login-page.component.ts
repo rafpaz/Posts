@@ -18,10 +18,9 @@ export class LoginPageComponent implements OnInit {
   ngOnInit() {
   }
 
-  save() {
+  login() {
     console.log(this.userLogin.name);
     console.log(this.userLogin.password);
     this.userService.checkLogin(this.userLogin).subscribe(bla => console.log(bla));
   }
-
 }

@@ -116,10 +116,10 @@ angular.module('crudApp').controller('UserController',
 
         function addNewPost(){
             var post = {};
-            post.title = "bla";
-            post.content = "content";
-            post.userId = 1;
-            post.id = 1;
+            post.title = "bla22";
+            post.content = "content22";
+            post.userId = 2;
+            post.id = 3;
             UserService.addNewPost(post).then(
                 function (value) { console.log(value); },
                 function (reason) { console.error(reason); }
